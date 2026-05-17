@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sasnet"
+version = "0.1.0"
+description = "SASNet: Spatially-Adaptive Sinusoidal Neural Networks"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Haoan Feng"},
+]
+dependencies = [
+    "torch>=2.0",
+    "numpy",
+    "scipy",
+    "Pillow",
+]
+
+[tool.setuptools.packages.find]
+include = ["sasnet*"]

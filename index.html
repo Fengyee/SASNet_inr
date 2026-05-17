@@ -2,119 +2,89 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta name="description" content="SASNet: Spatially-Adaptive Sinusoidal Neural Networks. An implicit neural representation that introduces spatial localization into SIRENs through a frozen frequency embedding layer and learned spatially-adaptive masks.">
+  <meta property="og:title" content="SASNet: Spatially-Adaptive Sinusoidal Neural Networks"/>
+  <meta property="og:description" content="SASNet introduces spatial localization into SIRENs through a frozen frequency embedding layer and learned spatially-adaptive masks."/>
+  <meta property="og:url" content="https://fengyee.github.io/SASNet_inr/"/>
+  <meta property="og:image" content="static/images/og_banner.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:title" content="SASNet: Spatially-Adaptive Sinusoidal Neural Networks">
+  <meta name="twitter:description" content="A spatially-adaptive sinusoidal INR: stable training, sharper edges, cleaner backgrounds across image, volume, and SDF tasks.">
+  <meta name="twitter:image" content="static/images/og_banner.png">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="keywords" content="implicit neural representation, INR, SIREN, hash grid, SDF, neural fields, spatially adaptive, frequency localization">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-  <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+  <title>SASNet: Spatially-Adaptive Sinusoidal Neural Networks</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232b59c3'%3E%3Cpath d='M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm8 1.5V8h4.5L14 3.5zM8 12h8v1.4H8V12zm0 3h8v1.4H8V15zm0 3h5v1.4H8V18z'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
 
+<!-- =========================== Hero =========================== -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SASNet: Spatially-Adaptive Sinusoidal Neural Networks</h1>
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://fengyee.github.io" target="_blank">Haoan Feng</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=UBfNGnMAAAAJ&hl=en&oi=ao" target="_blank">Diana Aldana</a><sup>2</sup>,</span>
+            <span class="author-block"><a href="https://sites.google.com/site/tiagonovellodebrito" target="_blank">Tiago Novello</a><sup>2</sup>,</span>
+            <span class="author-block"><a href="https://geog.umd.edu/facultyprofile/de-floriani/leila" target="_blank">Leila De Floriani</a><sup>1</sup></span>
+          </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+          <div class="is-size-6 publication-authors" style="margin-top:0.4rem;">
+            <span class="author-block"><sup>1</sup>University of Maryland, College Park &nbsp;&nbsp; <sup>2</sup>Institute for Pure and Applied Mathematics (IMPA)</span>
+          </div>
+          <div class="is-size-5 publication-authors" style="margin-top:0.4rem;">
+            <span class="author-block"><strong>CVPR 2026</strong></span>
+          </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
+          <div class="publication-links" style="margin-top:1rem;">
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2503.09750" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/Fengyee/SASNet_inr" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="#bibtex" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-quote-right"></i></span><span>BibTeX</span>
+              </a>
+            </span>
+          </div>
 
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-            </div>
+          <div class="tldr-pills">
+            <span class="tag">Image fitting</span>
+            <span class="tag">Volumetric data</span>
+            <span class="tag">SDF reconstruction</span>
+            <span class="tag">Stable training</span>
+            <span class="tag">Frequency localization</span>
           </div>
         </div>
       </div>
@@ -122,191 +92,449 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
+<!-- =========================== Teaser =========================== -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+    <div class="hero-body" style="padding-top:0.5rem;">
+      <div class="figure-frame" style="max-width:1000px;">
+        <img src="static/images/teaser.png" alt="SASNet teaser: comparison against SIREN under different ω₀ on super-resolution, volumetric fitting, and SDF reconstruction.">
+      </div>
+      <p class="figure-caption">
+        SIREN's reconstruction quality is sensitive to its input frequency parameter
+        $\omega_0$: small values yield blurry results, while large values introduce
+        ringing artifacts and high-frequency noise in regions that should remain smooth.
+        We refer to this undesired activation of high-frequency components in low-frequency
+        regions as <em>frequency leakage</em>, the central failure mode SASNet addresses.
+        By learning where each frequency band should be active, SASNet produces sharper
+        edges while keeping smooth regions clean on
+        <a href="#results-image">2D super-resolution</a> (top),
+        <a href="#results-volume">volumetric fitting</a> (middle), and
+        <a href="#results-sdf">SDF reconstruction</a> (bottom).
+      </p>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
+<!-- =========================== TL;DR =========================== -->
+<section class="section">
+  <div class="container is-max-desktop section-narrow">
+    <p class="section-eyebrow has-text-centered">TL;DR</p>
+    <h2 class="title is-3 section-title has-text-centered">A spatially-adaptive masking strategy for SIRENs</h2>
+    <p class="has-text-centered" style="max-width:760px; margin: 0 auto 0.5rem;">
+      SASNet pairs a <strong>frozen frequency embedding layer</strong> with a lightweight hash-grid MLP that
+      produces <a href="#method"><strong>spatially-adaptive masks</strong></a>. The masks select, per location and per
+      frequency band, which sinusoidal neurons express output. This suppresses high-frequency leakage
+      in smooth regions while preserving fine detail around edges and surfaces.
+    </p>
+
+    <div class="contrib-grid">
+      <div class="contrib-card">
+        <div class="num">01 / Problem</div>
+        <h4>SIREN is sensitive to $\omega_0$</h4>
+        <p>A single global frequency parameter controls the entire signal. Low values produce blurry edges, while high values introduce ringing in flat regions. No per-region control is available.</p>
+      </div>
+      <div class="contrib-card">
+        <div class="num">02 / Idea</div>
+        <h4>Localize frequency in space</h4>
+        <p>Freeze the frequency embedding to fix the spectral support, and jointly learn <em>where</em> each frequency band is active through <a href="#method">spatially-adaptive masks</a>, rather than adjusting <em>which</em> frequencies are available.</p>
+      </div>
+      <div class="contrib-card">
+        <div class="num">03 / Result</div>
+        <h4>Improved accuracy and convergence</h4>
+        <p>Highest PSNR and SSIM on DIV2K and Kodak image fitting and ScalarFlow volumetric fitting, and lowest Chamfer distance with highest IoU on SDF reconstruction, with faster convergence and only modest overhead from the mask generation network.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== Method =========================== -->
+<section class="section" id="method">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+    <p class="section-eyebrow has-text-centered">Method</p>
+    <h2 class="title is-3 section-title has-text-centered">SASNet architecture</h2>
+    <div class="figure-frame" style="max-width:1000px;">
+      <img src="static/images/method_overview.png" alt="SASNet overview diagram: frequency embedding layer combined with hash-grid-driven spatial masks modulating sinusoidal neurons.">
+    </div>
+    <p class="figure-caption">
+      A frozen <strong>frequency embedding layer</strong> fixes the spectral support of the network,
+      following Novello et&nbsp;al.&nbsp;(2024). In parallel, a multi-scale <strong>hash-grid MLP</strong>
+      predicts per-layer spatial masks $\mathcal{M}^i(\mathbf{x}) \in [0,1]^{n_i}$, which modulate the
+      sinusoidal neuron activations through an element-wise (Hadamard) product. The mask generation network
+      and the SIREN backbone are trained jointly.
+    </p>
+
+    <!-- ============= 1. Frequency embedding layer ============= -->
+    <div style="margin-top:2.4rem;">
+      <h3 class="title is-4 section-title">① Frequency embedding layer</h3>
+      <p>
+        Each sinusoidal neuron in the $i$-th layer of a SIREN can be written as
+      </p>
+      <p style="text-align:center;">
+        $h_j^{i}(\mathbf{x}) = \sin\!\Bigg(\sum_{k=1}^{n} W_{jk}^{i}\,\underbrace{\sin(\mathbf{y}_k^{i-1})}_{h_k^{i-1}(\mathbf{x})} + b_j^{i}\Bigg)$,
+      </p>
+      <p>
+        where $\mathbf{y}^{i-1}$ denotes $\mathbf{h}^{i-1}(\mathbf{x})$ before activation and $W^{i}_{jk}$ controls
+        how strongly neuron $h_k^{i-1}$ contributes to the next layer. Novello et&nbsp;al.&nbsp;(2024) show that this
+        neuron admits the expansion
+      </p>
+      <p style="text-align:center;">
+        $h_j^{i}(\mathbf{x}) \;=\; \sum_{\mathbf{k}\in\mathbb{Z}^{n_i}} \alpha_{\mathbf{k}} \sin\!\Big(\langle \mathbf{k},\mathbf{y}\rangle + b_j^{i}\Big), \qquad \alpha_{\mathbf{k}} = \prod_{l} J_{k_l}(W_{jl}^{i})$,
+      </p>
+      <p>
+        where $J_{k_l}$ denotes the Bessel function of the first kind. The amplitudes $\alpha_{\mathbf{k}}$ depend only
+        on the network weights, and the generated frequencies are integer linear combinations
+        $\langle \mathbf{k}, \omega \rangle$ of the input frequencies $\omega$. Consequently, the input frequencies
+        fully determine the spectrum of the entire network.
+      </p>
+      <p>
+        SASNet exploits this property by initializing $\omega$ to cover a broad spectral range, sampling most components
+        from a low-frequency band $[-\mathcal{L}, \mathcal{L}]^{n_0}$ and the remainder from a higher band, and then
+        <strong>freezing</strong> $\omega$ during training. Only the amplitudes $\alpha_{\mathbf{k}}$ are learned. This
+        keeps the spectrum stable throughout optimization, in contrast to standard SIRENs whose effective frequencies
+        drift, and accelerates convergence.
+      </p>
+    </div>
+
+    <!-- ============= 2. Spatially-adaptive masks ============= -->
+    <div style="margin-top:2.4rem;">
+      <h3 class="title is-4 section-title">② Spatially-adaptive masks</h3>
+      <p>
+        The amplitudes $\alpha_{\mathbf{k}}$ above are independent of the spatial coordinate $\mathbf{x}$, so each
+        high-frequency component contributes globally across the domain, including in smooth regions. To localize
+        these contributions, SASNet multiplies each neuron by a learned mask
+        $\mathcal{M}_j^{i}(\mathbf{x}) \in [0,1]$, yielding the spatially modulated neuron
+      </p>
+      <p style="text-align:center;">
+        $\widetilde{h_j^{i}}(\mathbf{x}) \;=\; \mathcal{M}_j^{i}(\mathbf{x})\, h_j^{i}(\mathbf{x}) \;=\;
+        \sum_{\mathbf{k}\in\mathbb{Z}^{n_i}} \alpha_{\mathbf{k}}\, \mathcal{M}_j^{i}(\mathbf{x})\,
+        \sin\!\Big(\langle \mathbf{k},\mathbf{y}\rangle + b_j^{i}\Big)$.
+      </p>
+      <p>
+        The product $\alpha_{\mathbf{k}}\,\mathcal{M}_j^{i}(\mathbf{x})$ now plays the role of a
+        <em>spatially dependent amplitude</em>: a frequency component contributes only where the corresponding mask is
+        nonzero. Applied to the frequency embedding layer, $\mathcal{M}^1(\mathbf{x}) \odot \sin(\omega\mathbf{x} + \varphi)$
+        directly selects which input frequencies are visible in each region.
+      </p>
+      <p>
+        The masks $\mathcal{M}_\phi$ are parameterized by a small multi-scale hash-grid network (Müller et&nbsp;al.,&nbsp;2022)
+        and trained jointly with the SIREN parameters. To control parameter count, neurons in each layer are partitioned
+        into groups and a single mask is broadcast across all neurons within a group. In the frequency embedding layer,
+        neurons are grouped by the magnitude of their initialized frequency; in hidden layers, neurons are partitioned
+        evenly.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== Result 1: Image fitting =========================== -->
+<section class="section hero is-light" id="results-image">
+  <div class="container is-max-desktop">
+    <p class="section-eyebrow has-text-centered">Results &middot; 2D images</p>
+    <h2 class="title is-3 section-title has-text-centered">Image fitting on DIV2K</h2>
+
+    <div class="figure-frame" style="max-width:760px; margin-bottom:1.5rem;">
+      <table class="table is-striped is-hoverable is-fullwidth result-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th class="num">PSNR ↑</th>
+            <th class="num">SSIM ↑</th>
+            <th class="num">PSNR<sub>edge</sub> ↑</th>
+            <th class="num">Noisiness ↓</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>SIREN</td><td class="num">34.64</td><td class="num">0.959</td><td class="num">31.37</td><td class="num runner">2.525</td></tr>
+          <tr><td>FFN</td><td class="num">31.92</td><td class="num">0.910</td><td class="num">30.20</td><td class="num">9.873</td></tr>
+          <tr><td>SAPE</td><td class="num">32.57</td><td class="num">0.932</td><td class="num">30.31</td><td class="num">3.128</td></tr>
+          <tr><td>WIRE</td><td class="num">28.76</td><td class="num">0.831</td><td class="num">25.73</td><td class="num">10.324</td></tr>
+          <tr><td>FINER</td><td class="num runner">37.52</td><td class="num">0.967</td><td class="num runner">34.02</td><td class="num">4.617</td></tr>
+          <tr><td>GaussianImage</td><td class="num">37.38</td><td class="num runner">0.973</td><td class="num">33.25</td><td class="num">&ndash;</td></tr>
+          <tr><td>NeuRBF</td><td class="num">36.33</td><td class="num">0.959</td><td class="num">33.92</td><td class="num">6.975</td></tr>
+          <tr class="ours"><td>SASNet (Ours)</td><td class="num best">39.82</td><td class="num best">0.979</td><td class="num best">36.81</td><td class="num best">2.105</td></tr>
+        </tbody>
+      </table>
+      <p class="figure-caption">
+        <span style="background:#fde0e0; padding:0 0.4em; border-radius:3px;">Best</span> /
+        <span style="background:#ffe9cf; padding:0 0.4em; border-radius:3px;">runner-up</span>.
+        SASNet wins on all four metrics, with the largest gap on <em>noisiness</em>: direct evidence that the masks suppress frequency leakage.
+      </p>
+    </div>
+
+    <div class="figure-frame">
+      <img src="static/images/toy_comparison.png" alt="Reconstruction error maps and learned masks on a toy image.">
+    </div>
+    <p class="figure-caption">
+      <strong>Error maps and learned masks on a toy image.</strong> Most baselines exhibit ringing or fail to capture the
+      central high-frequency structure. SASNet learns <em>well-localized, multi-frequency</em> masks that activate only
+      where they are needed, in stark contrast to SAPE's spatially inconsistent masks.
+    </p>
+
+    <div class="figure-frame" style="margin-top:2rem;">
+      <img src="static/images/quality_superres.png" alt="Pixel-shift and ×16 super-resolution comparison.">
+    </div>
+    <p class="figure-caption">
+      <strong>Pixel shift and ×16 super-resolution.</strong> SASNet is the only method that simultaneously preserves
+      sharp texture (yellow boxes) and stays clean in smooth regions (green boxes).
+    </p>
+
+    <div class="figure-frame" style="margin-top:2rem; max-width:780px;">
+      <img src="static/images/scalability.png" alt="PSNR vs. parameter count on Kodak.">
+    </div>
+    <p class="figure-caption">
+      <strong>Scalability on Kodak.</strong> SASNet shows good scaling behavior, leading across the practical parameter range.
+    </p>
+  </div>
+</section>
+
+<!-- =========================== Result 2: Volumetric =========================== -->
+<section class="section" id="results-volume">
+  <div class="container is-max-desktop">
+    <p class="section-eyebrow has-text-centered">Results &middot; 3D volumes</p>
+    <h2 class="title is-3 section-title has-text-centered">Volumetric data on ScalarFlow</h2>
+
+    <div class="figure-frame" style="max-width:680px; margin-bottom:1.5rem;">
+      <table class="table is-striped is-hoverable is-fullwidth result-table">
+        <thead>
+          <tr><th>Method</th><th class="num">PSNR ↑</th><th class="num">SSIM ↑</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PEMLP</td><td class="num">40.42</td><td class="num">0.9434</td></tr>
+          <tr><td>Gauss</td><td class="num">47.11</td><td class="num">0.9920</td></tr>
+          <tr><td>SIREN</td><td class="num">47.67</td><td class="num">0.9948</td></tr>
+          <tr><td>FINER</td><td class="num">49.77</td><td class="num">0.9959</td></tr>
+          <tr><td>WIRE</td><td class="num runner">53.06</td><td class="num runner">0.9963</td></tr>
+          <tr class="ours"><td>SASNet (Ours)</td><td class="num best">55.92</td><td class="num best">0.9973</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="figure-frame">
+      <img src="static/images/volume_comparison.png" alt="Volumetric reconstruction comparison.">
+    </div>
+    <p class="figure-caption">
+      SASNet recovers thin filaments and turbulent detail while keeping a clean empty background, whereas global methods
+      (SIREN, FINER) leak high-frequency noise into empty regions and local methods (WIRE) introduce artifacts in smooth areas.
+    </p>
+  </div>
+</section>
+
+<!-- =========================== Result 3: SDF =========================== -->
+<section class="section hero is-light" id="results-sdf">
+  <div class="container is-max-desktop">
+    <p class="section-eyebrow has-text-centered">Results &middot; Signed distance fields</p>
+    <h2 class="title is-3 section-title has-text-centered">SDF reconstruction</h2>
+
+    <!-- Interactive dragon viewer with side-by-side method comparison -->
+    <div style="margin-bottom: 2rem;">
+      <h4 class="title is-5 section-title has-text-centered">Interactive example: Dragon model</h4>
+      <p class="has-text-centered" style="max-width: 760px; margin: 0 auto 1.2rem;">
+        Drag to rotate, scroll to zoom. Each mesh is the zero-level set of the SDF learned by the corresponding method,
+        extracted with Marching Cubes and decimated for web display. The two viewers are independent, so you can pick
+        any pair of methods to compare directly on the same shape.
+      </p>
+
+      <div class="two-col">
+        <div class="viewer-card">
+          <model-viewer
+            id="dragon-viewer-a"
+            class="viewer-box"
+            src="static/meshes/dragon_siren.glb"
+            alt="Interactive 3D model A of the Stanford Dragon SDF reconstruction"
+            camera-controls
+            touch-action="pan-y"
+            shadow-intensity="1.4"
+            shadow-softness="0.7"
+            exposure="0.95"
+            environment-image="neutral"
+            auto-rotate
+            auto-rotate-delay="500">
+          </model-viewer>
+          <div class="method-selector" data-target="dragon-viewer-a" data-metrics="dragon-metrics-a">
+            <button class="ms-btn" data-key="nerfpe">PEMLP</button>
+            <button class="ms-btn" data-key="gauss">Gauss</button>
+            <button class="ms-btn is-active" data-key="siren">SIREN</button>
+            <button class="ms-btn" data-key="wire">WIRE</button>
+            <button class="ms-btn" data-key="finer">FINER</button>
+            <button class="ms-btn" data-key="sasnet">SASNet (Ours)</button>
+          </div>
+          <p id="dragon-metrics-a" class="viewer-metrics">
+            <strong>SIREN</strong> &nbsp;&middot;&nbsp; Chamfer: 2.871 &times; 10<sup>&minus;6</sup> &nbsp;&middot;&nbsp; IoU: 0.9694
+          </p>
+        </div>
+
+        <div class="viewer-card">
+          <model-viewer
+            id="dragon-viewer-b"
+            class="viewer-box"
+            src="static/meshes/dragon_sasnet.glb"
+            alt="Interactive 3D model B of the Stanford Dragon SDF reconstruction"
+            camera-controls
+            touch-action="pan-y"
+            shadow-intensity="1.4"
+            shadow-softness="0.7"
+            exposure="0.95"
+            environment-image="neutral"
+            auto-rotate
+            auto-rotate-delay="500">
+          </model-viewer>
+          <div class="method-selector" data-target="dragon-viewer-b" data-metrics="dragon-metrics-b">
+            <button class="ms-btn" data-key="nerfpe">PEMLP</button>
+            <button class="ms-btn" data-key="gauss">Gauss</button>
+            <button class="ms-btn" data-key="siren">SIREN</button>
+            <button class="ms-btn" data-key="wire">WIRE</button>
+            <button class="ms-btn" data-key="finer">FINER</button>
+            <button class="ms-btn is-active" data-key="sasnet">SASNet (Ours)</button>
+          </div>
+          <p id="dragon-metrics-b" class="viewer-metrics">
+            <strong>SASNet (Ours)</strong> &nbsp;&middot;&nbsp; Chamfer: 1.964 &times; 10<sup>&minus;6</sup> &nbsp;&middot;&nbsp; IoU: 0.9809
           </p>
         </div>
       </div>
+
+      <p style="font-size:0.8rem; color:#888; margin-top:0.8rem; text-align:center;">
+        Meshes decimated to ~120K faces from the original ~600K-face reconstructions for web delivery.
+      </p>
     </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+    <script>
+      (function () {
+        const metricsByMethod = {
+          nerfpe: { name: 'PEMLP',         chamfer: '2.039', iou: '0.9803' },
+          gauss:  { name: 'Gauss',         chamfer: '13.04', iou: '0.9561' },
+          siren:  { name: 'SIREN',         chamfer: '2.871', iou: '0.9694' },
+          wire:   { name: 'WIRE',          chamfer: '2.172', iou: '0.9747' },
+          finer:  { name: 'FINER',         chamfer: '2.477', iou: '0.9728' },
+          sasnet: { name: 'SASNet (Ours)', chamfer: '1.964', iou: '0.9809' },
+        };
+        document.querySelectorAll('.method-selector[data-target]').forEach(selector => {
+          const viewer = document.getElementById(selector.dataset.target);
+          const metricsEl = document.getElementById(selector.dataset.metrics);
+          selector.querySelectorAll('.ms-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const k = btn.dataset.key;
+              viewer.src = 'static/meshes/dragon_' + k + '.glb';
+              selector.querySelectorAll('.ms-btn').forEach(b => b.classList.remove('is-active'));
+              btn.classList.add('is-active');
+              const m = metricsByMethod[k];
+              metricsEl.innerHTML = '<strong>' + m.name + '</strong> &nbsp;&middot;&nbsp; Chamfer: ' + m.chamfer + ' &times; 10<sup>&minus;6</sup> &nbsp;&middot;&nbsp; IoU: ' + m.iou;
+            });
+          });
+        });
+      })();
+    </script>
 
+    <!-- SDF table -->
+    <div class="figure-frame" style="max-width:840px; margin-bottom:1.5rem;">
+      <table class="table is-striped is-hoverable is-fullwidth result-table">
+        <thead>
+          <tr>
+            <th>Metric</th><th>Method</th>
+            <th class="num">Armadillo</th><th class="num">Dragon</th><th class="num">Lucy</th><th class="num">Thai Statue</th><th class="num">Avg.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="6">Chamfer ↓ (×10⁻⁶)</td><td>PEMLP</td><td class="num">3.465</td><td class="num runner">2.039</td><td class="num runner">2.387</td><td class="num">4.460</td><td class="num">3.088</td></tr>
+          <tr><td>Gauss</td><td class="num">7.283</td><td class="num">13.04</td><td class="num">11.78</td><td class="num">11.62</td><td class="num">10.93</td></tr>
+          <tr><td>SIREN</td><td class="num">3.599</td><td class="num">2.871</td><td class="num">2.405</td><td class="num">4.381</td><td class="num">3.314</td></tr>
+          <tr><td>WIRE</td><td class="num best">3.274</td><td class="num">2.172</td><td class="num">2.419</td><td class="num runner">3.296</td><td class="num runner">2.790</td></tr>
+          <tr><td>FINER</td><td class="num">4.040</td><td class="num">2.477</td><td class="num">2.536</td><td class="num">4.201</td><td class="num">3.313</td></tr>
+          <tr class="ours"><td>SASNet</td><td class="num runner">3.368</td><td class="num best">1.964</td><td class="num best">1.927</td><td class="num best">3.090</td><td class="num best">2.587</td></tr>
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
+          <tr><td rowspan="6">IoU ↑</td><td>PEMLP</td><td class="num">0.9878</td><td class="num runner">0.9803</td><td class="num">0.9677</td><td class="num">0.9561</td><td class="num">0.9730</td></tr>
+          <tr><td>Gauss</td><td class="num">0.9806</td><td class="num">0.9561</td><td class="num">0.9581</td><td class="num">0.9418</td><td class="num">0.9592</td></tr>
+          <tr><td>SIREN</td><td class="num">0.9872</td><td class="num">0.9694</td><td class="num runner">0.9716</td><td class="num">0.9561</td><td class="num">0.9711</td></tr>
+          <tr><td>WIRE</td><td class="num best">0.9910</td><td class="num">0.9747</td><td class="num">0.9693</td><td class="num runner">0.9635</td><td class="num runner">0.9746</td></tr>
+          <tr><td>FINER</td><td class="num">0.9837</td><td class="num">0.9728</td><td class="num">0.9671</td><td class="num">0.9518</td><td class="num">0.9689</td></tr>
+          <tr class="ours"><td>SASNet</td><td class="num runner">0.9891</td><td class="num best">0.9809</td><td class="num best">0.9813</td><td class="num best">0.9654</td><td class="num best">0.9792</td></tr>
+        </tbody>
+      </table>
+      <p class="figure-caption">SASNet leads on the Chamfer / IoU average across four canonical shapes.</p>
     </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
 
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
+    <div class="two-col" style="margin-top:2rem;">
+      <div>
+        <div class="figure-frame equal-h">
+          <img src="static/images/sdf_loss.png" alt="Training loss curves for the Armadillo SDF.">
         </div>
+        <p class="figure-caption">
+          <strong>Convergence:</strong> SASNet reaches the final loss of the strongest baseline within the first ~35K
+          iterations, then keeps improving.
+        </p>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
+      <div>
+        <div class="figure-frame equal-h">
+          <img src="static/images/sdf_mask.png" alt="Sliced 3D mask visualization.">
         </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
+        <p class="figure-caption">
+          <strong>What the masks learn:</strong> a sliced view of the highest-frequency mask shows activation concentrating
+          tightly around the zero-level set, exactly where high-frequency detail is needed.
+        </p>
       </div>
     </div>
   </div>
 </section>
-<!-- End video carousel -->
 
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
+<!-- 
+<section class="section">
+  <div class="container is-max-desktop section-narrow">
+    <p class="section-eyebrow has-text-centered">Ablation</p>
+    <h2 class="title is-3 section-title has-text-centered">What each component contributes</h2>
+    <div class="figure-frame">
+      <img src="static/images/ablation.png" alt="Ablation comparison showing the contribution of each SASNet component.">
     </div>
-  </section>
-<!--End paper poster -->
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
-    </div>
+    <p class="figure-caption">
+      Disabling the frequency embedding init or removing per-layer masks consistently degrades quality; both
+      components are necessary and complementary.
+    </p>
+  </div>
 </section>
-<!--End BibTex citation -->
 
+<section class="section hero is-light">
+  <div class="container is-max-desktop section-narrow">
+    <p class="section-eyebrow has-text-centered">Limitations</p>
+    <h2 class="title is-3 section-title has-text-centered">When SASNet still struggles</h2>
+    <div class="figure-frame">
+      <img src="static/images/limitations.png" alt="Failure cases of SASNet.">
+    </div>
+    <p class="figure-caption">
+      Extreme low-parameter regimes and signals dominated by uniformly high-frequency content remain hard. The hash-grid
+      mask network adds parameters that, while small, are not free; we discuss this trade-off in the paper.
+    </p>
+  </div>
+</section>
+-->
 
-  <footer class="footer">
+<!-- =========================== BibTeX =========================== -->
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content">
+    <h2 class="title section-title">BibTeX</h2>
+    <pre><code>@inproceedings{feng2026sasnet,
+  title     = {SASNet: Spatially-Adaptive Sinusoidal Neural Networks},
+  author    = {Feng, Haoan and Aldana, Diana and Novello, Tiago and De Floriani, Leila},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<!-- =========================== Footer =========================== -->
+<footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>,
+            adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code, we just ask that you link back to this page in the footer. <br>
+            This website is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-
         </div>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>

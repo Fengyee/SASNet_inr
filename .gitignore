@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.venv/
+runs/
+workspace/
+*.ply
+*.obj
+*.png
+!static/images/*.png
+!docs/**/*.png
+!assets/*.png

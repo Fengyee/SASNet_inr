@@ -135,3 +135,73 @@ body {
 
 
 
+
+/* ---------- SASNet project page additions ---------- */
+.section-narrow { max-width: 960px; margin: 0 auto; }
+.figure-frame { max-width: 900px; margin: 0 auto; }
+.figure-frame img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.figure-frame.equal-h { height: 320px; background: #ffffff; border-radius: 6px; padding: 0.5rem; box-sizing: border-box; }
+.figure-frame.equal-h img { width: 100% !important; height: 100% !important; object-fit: contain; border-radius: 0; }
+@media (max-width: 768px) {
+  .figure-frame.equal-h { height: auto; }
+  .figure-frame.equal-h img { height: auto !important; }
+}
+.figure-caption { font-size: 0.92rem; color: #555; margin-top: 0.6rem; text-align: center; line-height: 1.45; }
+
+.tldr-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
+.tldr-pills .tag { font-size: 0.85rem; padding: 0.4em 0.9em; border-radius: 999px; background: #f0f4ff; color: #2b59c3; border: 1px solid #d4def5; }
+
+.contrib-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+.contrib-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 1.2rem 1.3rem; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+.contrib-card .num { font-family: 'Google Sans', sans-serif; font-size: 0.8rem; font-weight: 700; color: #2b59c3; letter-spacing: 0.06em; }
+.contrib-card h4 { font-family: 'Google Sans', sans-serif; font-size: 1.05rem; margin: 0.4rem 0 0.6rem 0; color: #222; }
+.contrib-card p { font-size: 0.93rem; color: #444; line-height: 1.55; margin: 0; }
+
+.result-table { font-size: 0.92rem; }
+.result-table th { background: #fafafa; }
+.result-table td.best { background: #fde0e0; font-weight: 600; }
+.result-table td.runner { background: #ffe9cf; }
+.result-table td.num,
+.result-table th.num { font-variant-numeric: tabular-nums; text-align: center; }
+.result-table tr.ours td { font-weight: 600; }
+
+.section-title { font-family: 'Google Sans', sans-serif; }
+.section-eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; color: #2b59c3; font-weight: 700; margin-bottom: 0.3rem; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; align-items: start; }
+@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+.viewer-card { display: flex; flex-direction: column; }
+.viewer-card .method-selector { margin-top: 0.8rem; justify-content: center; }
+.viewer-metrics { font-size: 0.9rem; color: #444; margin-top: 0.6rem; text-align: center; font-variant-numeric: tabular-nums; }
+
+.viewer-box {
+  width: 100%;
+  height: 440px;
+  background: radial-gradient(circle at 50% 30%, #3b4257 0%, #1f2436 65%, #131628 100%);
+  border-radius: 8px;
+  --poster-color: transparent;
+  --progress-bar-color: #6ea8ff;
+}
+
+.method-selector { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+.method-selector .ms-btn {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.85rem;
+  padding: 0.45em 0.95em;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #2b59c3;
+  border: 1px solid #d4def5;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.method-selector .ms-btn:hover { background: #eaf0ff; border-color: #b8c8ee; }
+.method-selector .ms-btn.is-active {
+  background: #2b59c3;
+  color: #ffffff;
+  border-color: #1f47a3;
+  box-shadow: 0 0 0 3px rgba(43, 89, 195, 0.22), 0 2px 6px rgba(43, 89, 195, 0.3);
+  font-weight: 600;
+  transform: translateY(-1px);
+}
