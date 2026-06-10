@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "sasnet"
 version = "0.1.0"
-description = "SASNet: Spatially-Adaptive Sinusoidal Neural Networks"
+description = "SASNet: Spatially-Adaptive Sinusoidal Networks for INRs"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [

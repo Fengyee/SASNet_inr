@@ -1,6 +1,6 @@
-# SASNet: Spatially-Adaptive Sinusoidal Neural Networks
+# SASNet: Spatially-Adaptive Sinusoidal Networks for INRs
 
-Official implementation of *SASNet: Spatially-Adaptive Sinusoidal Neural Networks*, **CVPR 2026**.
+Official implementation of *SASNet: Spatially-Adaptive Sinusoidal Networks for INRs*, **CVPR 2026**.
 
 [Haoan Feng](https://fengyee.github.io)<sup>1</sup>, [Diana Aldana](https://scholar.google.com/citations?user=UBfNGnMAAAAJ&hl=en&oi=ao)<sup>2</sup>, [Tiago Novello](https://sites.google.com/site/tiagonovellodebrito)<sup>2</sup>, [Leila De Floriani](https://geog.umd.edu/facultyprofile/de-floriani/leila)<sup>1</sup>
 <sup>1</sup>University of Maryland, College Park &nbsp;&nbsp; <sup>2</sup>Institute for Pure and Applied Mathematics (IMPA)
@@ -29,7 +29,7 @@ The hash-grid mask generator is required whenever you construct `SASNet(use_mask
 
 ```bibtex
 @inproceedings{feng2026sasnet,
-  title     = {SASNet: Spatially-Adaptive Sinusoidal Neural Networks},
+  title     = {SASNet: Spatially-Adaptive Sinusoidal Networks for INRs},
   author    = {Feng, Haoan and Aldana, Diana and Novello, Tiago and De Floriani, Leila},
   booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year      = {2026}
