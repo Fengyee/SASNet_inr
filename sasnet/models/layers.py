@@ -220,13 +220,17 @@ class SineLayer(nn.Module):
         if self.is_first and self.init_mode != "none":
             x = torch.sin(self.linear(x))
             if input_masks is not None:
+                # Build the masked output out-of-place: writing the masked groups back
+                # into ``x`` in place overwrites the tensor autograd saved for the mask
+                # gradient, so the backward pass fails.
                 start = 0 if self._has_low_freq_mask else self.group_ends[0]
                 ends = self.group_ends if self._has_low_freq_mask else self.group_ends[1:]
+                pieces = [x[..., :start]]
                 for g, end in enumerate(ends):
-                    x[..., start:end] = (
-                        x[..., start:end] * input_masks[..., g].unsqueeze(-1)
-                    )
+                    pieces.append(x[..., start:end] * input_masks[..., g].unsqueeze(-1))
                     start = end
+                pieces.append(x[..., start:])
+                x = torch.cat(pieces, dim=-1)
             return x
 
         x = torch.sin(self.omega_0 * self.linear(x))

@@ -1,0 +1,31 @@
+# SASNet-P on the FDHO Tiger protocol (image resized to 317x256 = 243,456 target values).
+# FEmb 256 + 2 masked sinusoidal hidden layers of width 232 (the paper's image-fitting widths); 129,841 trainable
+# parameters (114,635 backbone + 15,206 hash grid / mask decoder).
+data:
+  size: 256                       # short side, as in FDHO (torchvision Resize)
+model:
+  hidden_features: [256, 232, 232]         # FEmb width, then the hidden layers
+  masked_hidden_layer_groups: [8, 8]
+  omega_0: 30.0
+  period: 2.1052631578947367      # 2 / 0.95: the FEmb must not tie f(-1) to f(+1) on an endpoint-inclusive grid
+  bandlimit: 42
+  low_range: 9
+  perc_low_freqs: 0.5
+  num_high_freq_bands: 4
+  use_masks: true
+  hash_grid:
+    feature_dim: 2
+    num_lods: 10
+    multiscale_type: cat
+    feature_std: 0.01
+    feature_bias: 0.0
+    codebook_bitwidth: 10
+    min_grid_res: 8
+    max_grid_res: 128
+train:
+  steps: 10000
+  lr: 1.0e-3                      # sinusoidal backbone
+  lr_grid: 5.0e-3
+  lr_decoder: 5.0e-3
+  scheduler: cosine               # every group decays to 1% of its base lr
+  betas: [0.9, 0.99]              # Adam; beta2 = 0.99 as in instant-NGP (fewer loss spikes than 0.999)

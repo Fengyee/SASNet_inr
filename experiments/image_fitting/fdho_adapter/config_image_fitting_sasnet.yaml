@@ -1,0 +1,43 @@
+# SASNet-P / SASNet-D for fdho-release/02a_image_fitting.py (Tiger, Supp. Tab. 15 protocol).
+# Usage (from the fdho-release root, after applying fdho.patch and copying sasnet.py to models/):
+#   python 02a_image_fitting.py --config configs/config_image_fitting_sasnet.yaml
+log: true
+net:
+  model_name: sasnet_p
+  in_features: 2
+  sasnet_p:
+    hidden_features: [256, 232, 232]
+    masked_hidden_layer_groups: [8, 8]
+    omega_0: 30.0
+    bandlimit: 42
+    low_range: 9
+    perc_low_freqs: 0.5
+    num_high_freq_bands: 4
+    period: 2.1052631578947367
+    hash_grid: {feature_dim: 2, num_lods: 10, multiscale_type: cat, feature_std: 0.01,
+      feature_bias: 0.0, codebook_bitwidth: 10, min_grid_res: 8, max_grid_res: 128}
+    lr: 0.001
+    lr_grid: 0.005
+    lr_decoder: 0.005
+    scheduler: cosine
+    betas: [0.9, 0.99]
+  sasnet_d:
+    hidden_features: [256, 256, 256, 256]
+    masked_hidden_layer_groups: [8, 8, 8]
+    omega_0: 30.0
+    bandlimit: 42
+    low_range: 9
+    perc_low_freqs: 0.5
+    num_high_freq_bands: 4
+    period: 2.1052631578947367
+    hash_grid: {feature_dim: 2, num_lods: 10, multiscale_type: cat, feature_std: 0.01,
+      feature_bias: 0.0, codebook_bitwidth: 10, min_grid_res: 8, max_grid_res: 128}
+    lr: 0.001
+    lr_grid: 0.0005
+    lr_decoder: 0.0005
+    scheduler: cosine
+    betas: [0.9, 0.99]
+train: {steps: 10000}
+data: {size: 256, image_path: data/images/tiger.png}
+models: [sasnet_p, sasnet_d]
+out_root: .

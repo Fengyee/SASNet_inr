@@ -18,5 +18,8 @@ dependencies = [
     "Pillow",
 ]
 
+[project.optional-dependencies]
+experiments = ["torchvision", "pyyaml", "matplotlib"]
+
 [tool.setuptools.packages.find]
 include = ["sasnet*"]
