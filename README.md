@@ -41,6 +41,13 @@ The hash-grid mask generator is required whenever you construct `SASNet(use_mask
 
 *Training scripts for the remaining tasks (volumes, SDF) are not included yet; please refer to the paper and project page for their configurations and hyperparameters.*
 
+## Related projects
+
+- [**ImplicitTerrainV2**](https://fengyee.github.io/implicitterrainv2/) (ACM SIGSPATIAL 2026) · [code](https://github.com/Fengyee/implicitterrainv2)
+  — adopts SASNet's band-wise frequency masking for the residual geometry
+  model of a terrain INR, deriving the masks from a wavelet complexity field
+  computed from the input instead of a jointly trained hash-grid branch.
+
 ## Citation
 
 ```bibtex
@@ -54,4 +61,8 @@ The hash-grid mask generator is required whenever you construct `SASNet(use_mask
 
 ## License
 
-MIT (see `LICENSE`).
+- **Code** (`sasnet/`, `experiments/`): MIT, see `LICENSE`.
+- **Project page** (`index.html`, `static/`): built on the
+  [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template)
+  (adopted from [Nerfies](https://nerfies.github.io)) and licensed under
+  [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
